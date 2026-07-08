@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg" width="400" alt="monkey searching for banana">
+  <img src="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg" alt="monkey searching for banana">
 </p>
 
 <p align="center">
