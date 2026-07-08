@@ -5,10 +5,12 @@
         0%, 90%, 100% { opacity:1; }
         94%, 96% { opacity:0; }
       }
-      @keyframes searching {
+      @keyframes look-around {
         0%, 100% { transform: translate(0,0); }
-        33% { transform: translate(3px,0); }
-        66% { transform: translate(-2px,0); }
+        20% { transform: translate(4px,0); }
+        40% { transform: translate(0,0); }
+        60% { transform: translate(-4px,0); }
+        80% { transform: translate(3px,0); }
       }
       @keyframes tail-sway {
         0%, 100% { transform: rotate(0deg); }
@@ -16,10 +18,10 @@
       }
       @keyframes float {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
+        50% { transform: translateY(-8px); }
       }
       .left-eye, .right-eye { animation: blink 3.5s ease-in-out infinite; }
-      .eyeball { animation: searching 4s ease-in-out infinite; }
+      .eyeball { animation: look-around 5s ease-in-out infinite; }
       .tail-anim { animation: tail-sway 2.5s ease-in-out infinite; transform-origin: 100px 195px; }
       .thought-bubble { animation: float 2.5s ease-in-out infinite; }
     </style>
@@ -42,19 +44,19 @@
   <!-- face -->
   <ellipse cx="150" cy="145" rx="38" ry="32" fill="#C4956A"/>
 
-  <!-- eyes looking right (toward banana) -->
+  <!-- eyes — move in sync left/right/center -->
   <g class="left-eye">
     <circle cx="132" cy="135" r="9" fill="white"/>
     <g class="eyeball">
-      <circle cx="137" cy="135" r="5.5" fill="#1a1a2e"/>
-      <circle cx="139" cy="133" r="2.5" fill="white"/>
+      <circle cx="132" cy="135" r="5" fill="#1a1a2e"/>
+      <circle cx="133" cy="133" r="2" fill="white"/>
     </g>
   </g>
   <g class="right-eye">
     <circle cx="168" cy="135" r="9" fill="white"/>
     <g class="eyeball">
-      <circle cx="173" cy="135" r="5.5" fill="#1a1a2e"/>
-      <circle cx="175" cy="133" r="2.5" fill="white"/>
+      <circle cx="168" cy="135" r="5" fill="#1a1a2e"/>
+      <circle cx="169" cy="133" r="2" fill="white"/>
     </g>
   </g>
 
@@ -73,19 +75,9 @@
   <path d="M110 190 Q85 175 80 200" stroke="#A0714F" stroke-width="12" fill="none" stroke-linecap="round"/>
   <circle cx="80" cy="202" r="8" fill="#C4956A"/>
 
-  <!-- right arm (holding banana) -->
+  <!-- right arm (empty — no banana) -->
   <path d="M190 190 Q215 175 220 200" stroke="#A0714F" stroke-width="12" fill="none" stroke-linecap="round"/>
   <circle cx="220" cy="202" r="8" fill="#C4956A"/>
-
-  <!-- banana in right hand — realistic crescent shape -->
-  <!-- banana body: crescent curve, yellow -->
-  <path d="M 217,197 C 224,183 236,179 244,185 C 246,187 246,191 244,193 C 238,199 228,202 220,198 Z" fill="#FEE12B"/>
-  <!-- banana outer ridge line -->
-  <path d="M 219,196 C 226,184 236,181 243,186" fill="none" stroke="#E6C200" stroke-width="1.5"/>
-  <!-- banana stem (brown tip at bottom) -->
-  <path d="M 217,197 Q 215,202 218,203" stroke="#8B4513" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-  <!-- banana tip (brown at top) -->
-  <path d="M 244,185 Q 247,182 246,189" stroke="#6B4513" stroke-width="2" fill="none" stroke-linecap="round"/>
 
   <!-- legs -->
   <ellipse cx="130" cy="240" rx="12" ry="7" fill="#C4956A"/>
@@ -98,16 +90,8 @@
     <path d="M100 200 Q55 175 65 135 Q72 110 88 120" stroke="#A0714F" stroke-width="5" fill="none" stroke-linecap="round"/>
   </g>
 
-  <!-- ? animation — "where's the banana?" -->
-  <text x="150" y="58" text-anchor="middle" font-size="28" font-weight="bold" fill="#FFD700" font-family="Arial">
-    ?
-    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
-    <animate attributeName="y" values="58;50;58" dur="1.5s" repeatCount="indefinite"/>
-  </text>
-
-  <!-- banana thought bubble — smaller, properly positioned -->
+  <!-- big banana thought bubble — emoji only -->
   <g class="thought-bubble">
-    <circle cx="130" cy="85" r="9" fill="white" opacity="0.65"/>
-    <text x="130" y="89" text-anchor="middle" font-size="11">🍌</text>
+    <text x="150" y="82" text-anchor="middle" font-size="28">🍌</text>
   </g>
 </svg>
