@@ -1,171 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
     <style>
       @keyframes glance {
         0%, 100% { transform: translate(0,0); }
-        25% { transform: translate(-4px,0); }
+        25% { transform: translate(-3px,0); }
         50% { transform: translate(0,0); }
-        75% { transform: translate(4px,0); }
+        75% { transform: translate(3px,0); }
       }
-      @keyframes blink-eye {
-        0%, 92%, 100% { ry: 4; }
-        96%, 98% { ry: 0.5; }
+      @keyframes blink {
+        0%, 90%, 100% { ry: 4; }
+        95%, 97% { ry: 0.5; }
       }
-      @keyframes drift-banana {
-        0% { transform: translate(0,15px); opacity:0; }
-        15% { transform: translate(0,0); opacity:1; }
-        85% { transform: translate(0,-8px); opacity:1; }
-        100% { transform: translate(0,-18px); opacity:0; }
+      @keyframes float-up {
+        0% { transform: translate(0,12px); opacity:0; }
+        20% { transform: translate(0,0); opacity:1; }
+        80% { transform: translate(0,-5px); opacity:1; }
+        100% { transform: translate(0,-15px); opacity:0; }
       }
-      @keyframes bob-q {
+      @keyframes bounce {
         0%, 100% { transform: translate(0,0); }
         50% { transform: translate(0,-5px); }
       }
-      @keyframes pulse-circle {
-        0%, 100% { opacity: 0.06; r: 5; }
-        50% { opacity: 0.18; r: 8; }
-      }
-      @keyframes load-bar {
-        0% { width: 0; }
-      }
-      @keyframes cursor-flicker {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-      }
-      .monkey-pose { animation: glance 3s ease-in-out infinite; }
-      .eyeball-l, .eyeball-r { animation: blink-eye 4s ease-in-out infinite; transform-origin: center; }
-      .bubble-banana { animation: drift-banana 3s ease-in-out infinite; }
-      .q-mark { animation: bob-q 1.6s ease-in-out infinite; }
-      .glow-spot { animation: pulse-circle 3s ease-in-out infinite; }
-      .prog1 { animation: load-bar 0.8s ease-out forwards; }
-      .prog2 { animation: load-bar 0.8s ease-out 0.25s forwards; }
-      .prog3 { animation: load-bar 0.8s ease-out 0.5s forwards; }
-      .prog4 { animation: load-bar 0.8s ease-out 0.75s forwards; }
-      .cur { animation: cursor-flicker 1s step-end infinite; }
+      .head-group { animation: glance 3s ease-in-out infinite; }
+      .eye-ball { animation: blink 4s ease-in-out infinite; }
+      .thought { animation: float-up 3s ease-in-out infinite; }
+      .qmark { animation: bounce 1.5s ease-in-out infinite; }
     </style>
   </defs>
 
-  <!-- dark bg -->
-  <rect width="800" height="260" rx="18" fill="#0D1117"/>
+  <!-- background circle -->
+  <circle cx="100" cy="110" r="85" fill="#0D1117" stroke="#21262D" stroke-width="2"/>
+  <circle cx="100" cy="110" r="75" fill="#58A6FF" opacity="0.06"/>
 
-  <!-- grid bg 5% -->
-  <g stroke="#58A6FF" stroke-width="0.4" opacity="0.025">
-    <line x1="0" y1="65" x2="800" y2="65"/>
-    <line x1="0" y1="130" x2="800" y2="130"/>
-    <line x1="0" y1="195" x2="800" y2="195"/>
-    <line x1="200" y1="0" x2="200" y2="260"/>
-    <line x1="400" y1="0" x2="400" y2="260"/>
-    <line x1="600" y1="0" x2="600" y2="260"/>
-  </g>
-
-  <!-- ════════════════════════════
-       LEFT PANEL (x 0 – 420)
-       ════════════════════════════ -->
-
-  <text x="32" y="42" font-size="26" font-weight="bold" fill="#58A6FF" font-family="system-ui, -apple-system, sans-serif">🤖 Omar's Agent</text>
-  <text x="32" y="70" font-size="15" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif">searching for bananas … &amp; building everything</text>
-
-  <g transform="translate(32, 96)">
-    <text x="0" y="-4" font-size="12" fill="#8B949E" font-family="monospace">autonomy</text>
-    <rect x="0" y="4" width="320" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="4" width="296" height="8" rx="4" fill="#58A6FF" class="prog1"/>
-  </g>
-  <g transform="translate(32, 122)">
-    <text x="0" y="-4" font-size="12" fill="#8B949E" font-family="monospace">code</text>
-    <rect x="0" y="4" width="320" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="4" width="256" height="8" rx="4" fill="#3FB950" class="prog2"/>
-  </g>
-  <g transform="translate(32, 148)">
-    <text x="0" y="-4" font-size="12" fill="#8B949E" font-family="monospace">chaos</text>
-    <rect x="0" y="4" width="320" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="4" width="210" height="8" rx="4" fill="#D29922" class="prog3"/>
-  </g>
-  <g transform="translate(32, 174)">
-    <text x="0" y="-4" font-size="12" fill="#8B949E" font-family="monospace">banana hunting</text>
-    <rect x="0" y="4" width="320" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="4" width="310" height="8" rx="4" fill="#F778BA" class="prog4"/>
-  </g>
-
-  <text x="32" y="240" font-size="12" fill="#00FF00" opacity="0.35" font-family="monospace">root@omars-vps:~$ agent --mode=banana</text>
-  <rect x="355" y="227" width="9" height="15" fill="#00FF00" opacity="0.45" class="cur"/>
-
-  <text x="570" y="240" font-size="12" fill="#00FF00" opacity="0.35" font-family="monospace">STATUS: ONLINE 🔥</text>
-
-  <!-- ════════════════════════════
-       RIGHT PANEL — MONKEY + BANANA
-       Anchored x~620 y~195
-       ════════════════════════════ -->
-
-  <!-- soft glow -->
-  <circle cx="620" cy="190" r="80" fill="#58A6FF" opacity="0.06" class="glow-spot"/>
-
-  <g class="monkey-pose" transform="translate(625, 198)">
-
+  <g class="head-group" transform="translate(100, 133)">
     <!-- ears -->
-    <circle cx="-38" cy="-28" r="18" fill="#8B5E3C"/>
-    <circle cx="-38" cy="-28" r="10" fill="#C4956A"/>
-    <circle cx="38" cy="-28" r="18" fill="#8B5E3C"/>
-    <circle cx="38" cy="-28" r="10" fill="#C4956A"/>
+    <circle cx="-34" cy="-28" r="16" fill="#8B5E3C"/>
+    <circle cx="-34" cy="-28" r="9" fill="#C4956A"/>
+    <circle cx="34" cy="-28" r="16" fill="#8B5E3C"/>
+    <circle cx="34" cy="-28" r="9" fill="#C4956A"/>
 
     <!-- head -->
-    <circle cx="0" cy="-24" r="36" fill="#A0714F"/>
+    <circle cx="0" cy="-24" r="32" fill="#A0714F"/>
 
     <!-- face -->
-    <ellipse cx="0" cy="-9" rx="24" ry="20" fill="#C4956A"/>
+    <ellipse cx="0" cy="-9" rx="21" ry="17" fill="#C4956A"/>
 
-    <!-- left eye -->
-    <circle cx="-10" cy="-16" r="6" fill="white"/>
-    <ellipse cx="-9" cy="-16" rx="3.5" ry="4" fill="#1a1a2e" class="eyeball-l"/>
-    <circle cx="-8" cy="-17.5" r="1.3" fill="white"/>
+    <!-- eyes -->
+    <circle cx="-9" cy="-15" r="5" fill="white"/>
+    <ellipse cx="-8" cy="-15" rx="3" ry="4" fill="#1a1a2e" class="eye-ball"/>
+    <circle cx="-7" cy="-16.5" r="1.2" fill="white"/>
 
-    <!-- right eye -->
-    <circle cx="10" cy="-16" r="6" fill="white"/>
-    <ellipse cx="11" cy="-16" rx="3.5" ry="4" fill="#1a1a2e" class="eyeball-r"/>
-    <circle cx="12" cy="-17.5" r="1.3" fill="white"/>
+    <circle cx="9" cy="-15" r="5" fill="white"/>
+    <ellipse cx="10" cy="-15" rx="3" ry="4" fill="#1a1a2e" class="eye-ball"/>
+    <circle cx="11" cy="-16.5" r="1.2" fill="white"/>
 
     <!-- brows -->
-    <line x1="-16" y1="-25" x2="-5" y2="-23" stroke="#6D4C2E" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="16" y1="-25" x2="5" y2="-23" stroke="#6D4C2E" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-13" y1="-24" x2="-4" y2="-21" stroke="#6D4C2E" stroke-width="2" stroke-linecap="round"/>
+    <line x1="13" y1="-24" x2="4" y2="-21" stroke="#6D4C2E" stroke-width="2" stroke-linecap="round"/>
 
     <!-- nose -->
-    <circle cx="-3" cy="-2" r="2.5" fill="#8B5E3C"/>
-    <circle cx="3" cy="-2" r="2.5" fill="#8B5E3C"/>
+    <circle cx="-2.5" cy="-1" r="2" fill="#8B5E3C"/>
+    <circle cx="2.5" cy="-1" r="2" fill="#8B5E3C"/>
 
-    <!-- mouth smirk -->
-    <path d="M-7,5 Q0,11 7,5" stroke="#6D4C2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- smirk -->
+    <path d="M-5,5 Q0,10 5,5" stroke="#6D4C2E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 
     <!-- body -->
-    <ellipse cx="0" cy="28" rx="22" ry="17" fill="#A0714F"/>
+    <ellipse cx="0" cy="26" rx="19" ry="15" fill="#A0714F"/>
 
-    <!-- arms (one holds banana) -->
-    <path d="M-20,22 Q-40,12 -34,34" stroke="#A0714F" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M20,22 Q40,12 34,34" stroke="#A0714F" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+    <!-- arms -->
+    <path d="M-18,20 Q-36,12 -30,32" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M18,20 Q36,12 30,32" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
 
     <!-- hands -->
-    <circle cx="-34" cy="35" r="5" fill="#C4956A"/>
-    <circle cx="34" cy="35" r="5" fill="#C4956A"/>
+    <circle cx="-30" cy="33" r="4" fill="#C4956A"/>
+    <circle cx="30" cy="33" r="4" fill="#C4956A"/>
 
-    <!-- banana in right hand -->
-    <text x="38" y="32" text-anchor="middle" font-size="20">🍌</text>
+    <!-- banana -->
+    <text x="34" y="30" text-anchor="middle" font-size="18">🍌</text>
 
     <!-- legs -->
-    <ellipse cx="-21" cy="56" rx="7" ry="4" fill="#C4956A"/>
-    <ellipse cx="21" cy="56" rx="7" ry="4" fill="#C4956A"/>
-    <path d="M-9,44 Q-14,58 -20,57" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-    <path d="M9,44 Q14,58 20,57" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M-8,39 Q-12,53 -18,52" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M8,39 Q12,53 18,52" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-19" cy="53" rx="5" ry="3" fill="#C4956A"/>
+    <ellipse cx="19" cy="53" rx="5" ry="3" fill="#C4956A"/>
 
     <!-- tail -->
-    <path d="M15,40 Q38,45 40,29 Q44,12 36,19" stroke="#A0714F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M13,36 Q34,41 36,27 Q39,12 32,18" stroke="#A0714F" stroke-width="3" fill="none" stroke-linecap="round"/>
   </g>
 
-  <!-- thought bubble banana -->
-  <g class="bubble-banana" transform="translate(680, 125)">
-    <circle cx="10" cy="12" r="3" fill="white" opacity="0.45"/>
-    <circle cx="20" cy="5" r="4.5" fill="white" opacity="0.45"/>
-    <ellipse cx="36" cy="0" rx="20" ry="14" fill="white" opacity="0.85"/>
-    <text x="36" y="5" text-anchor="middle" font-size="20">🍌</text>
+  <!-- thought bubble -->
+  <g class="thought" transform="translate(165, 50)">
+    <circle cx="8" cy="10" r="2.5" fill="white" opacity="0.5"/>
+    <circle cx="15" cy="4" r="3.5" fill="white" opacity="0.5"/>
+    <ellipse cx="28" cy="0" rx="16" ry="11" fill="white" opacity="0.85"/>
+    <text x="28" y="5" text-anchor="middle" font-size="16">🍌</text>
   </g>
 
-  <!-- ? mark -->
-  <text x="595" y="115" text-anchor="middle" font-size="28" font-weight="bold" fill="#FFD700" class="q-mark" font-family="Arial">?</text>
+  <!-- question mark -->
+  <text x="85" y="28" text-anchor="middle" font-size="22" font-weight="bold" fill="#FFD700" class="qmark" font-family="Arial">?</text>
 </svg>
