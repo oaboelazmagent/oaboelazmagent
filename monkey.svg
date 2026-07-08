@@ -1,102 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
   <defs>
     <style>
       @keyframes glance {
         0%, 100% { transform: translate(0,0); }
-        25% { transform: translate(-3px,0); }
+        25% { transform: translate(-4px,0); }
         50% { transform: translate(0,0); }
-        75% { transform: translate(3px,0); }
+        75% { transform: translate(4px,0); }
       }
       @keyframes blink {
-        0%, 90%, 100% { ry: 4; }
-        95%, 97% { ry: 0.5; }
+        0%, 92%, 100% { ry: 5; }
+        96%, 98% { ry: 0.5; }
       }
-      @keyframes float-up {
-        0% { transform: translate(0,12px); opacity:0; }
-        20% { transform: translate(0,0); opacity:1; }
-        80% { transform: translate(0,-5px); opacity:1; }
-        100% { transform: translate(0,-15px); opacity:0; }
+      @keyframes lazy-tail {
+        0%, 100% { transform: rotate(0deg); transform-origin: 140px 155px; }
+        50% { transform: rotate(8deg); transform-origin: 140px 155px; }
       }
-      @keyframes bounce {
-        0%, 100% { transform: translate(0,0); }
-        50% { transform: translate(0,-5px); }
+      @keyframes spin-banana {
+        0%, 100% { transform: rotate(-12deg); transform-origin: 150px 255px; }
+        50% { transform: rotate(12deg); transform-origin: 150px 255px; }
       }
       .head-group { animation: glance 3s ease-in-out infinite; }
       .eye-ball { animation: blink 4s ease-in-out infinite; }
-      .thought { animation: float-up 3s ease-in-out infinite; }
-      .qmark { animation: bounce 1.5s ease-in-out infinite; }
+      .tail-sway { animation: lazy-tail 3s ease-in-out infinite; }
+      .banana-swing { animation: spin-banana 2s ease-in-out infinite; }
     </style>
   </defs>
 
-  <!-- background circle -->
-  <circle cx="100" cy="110" r="85" fill="#0D1117" stroke="#21262D" stroke-width="2"/>
-  <circle cx="100" cy="110" r="75" fill="#58A6FF" opacity="0.06"/>
+  <!-- BG circle -->
+  <circle cx="150" cy="150" r="135" fill="#0D1117"/>
+  <circle cx="150" cy="150" r="125" fill="#58A6FF" opacity="0.05"/>
 
-  <g class="head-group" transform="translate(100, 133)">
-    <!-- ears -->
-    <circle cx="-34" cy="-28" r="16" fill="#8B5E3C"/>
-    <circle cx="-34" cy="-28" r="9" fill="#C4956A"/>
-    <circle cx="34" cy="-28" r="16" fill="#8B5E3C"/>
-    <circle cx="34" cy="-28" r="9" fill="#C4956A"/>
+  <g class="head-group" transform="translate(150, 170)">
+    <!-- Ears -->
+    <circle cx="-42" cy="-35" r="20" fill="#8B5E3C"/>
+    <circle cx="-42" cy="-35" r="12" fill="#C4956A"/>
+    <circle cx="42" cy="-35" r="20" fill="#8B5E3C"/>
+    <circle cx="42" cy="-35" r="12" fill="#C4956A"/>
 
-    <!-- head -->
-    <circle cx="0" cy="-24" r="32" fill="#A0714F"/>
+    <!-- Head -->
+    <circle cx="0" cy="-30" r="40" fill="#A0714F"/>
 
-    <!-- face -->
-    <ellipse cx="0" cy="-9" rx="21" ry="17" fill="#C4956A"/>
+    <!-- Face -->
+    <ellipse cx="0" cy="-10" rx="26" ry="22" fill="#C4956A"/>
 
-    <!-- eyes -->
-    <circle cx="-9" cy="-15" r="5" fill="white"/>
-    <ellipse cx="-8" cy="-15" rx="3" ry="4" fill="#1a1a2e" class="eye-ball"/>
-    <circle cx="-7" cy="-16.5" r="1.2" fill="white"/>
+    <!-- Eyes -->
+    <circle cx="-12" cy="-20" r="7" fill="white"/>
+    <ellipse cx="-11" cy="-20" rx="4" ry="5" fill="#1a1a2e" class="eye-ball"/>
+    <circle cx="-10" cy="-22" r="1.5" fill="white"/>
 
-    <circle cx="9" cy="-15" r="5" fill="white"/>
-    <ellipse cx="10" cy="-15" rx="3" ry="4" fill="#1a1a2e" class="eye-ball"/>
-    <circle cx="11" cy="-16.5" r="1.2" fill="white"/>
+    <circle cx="12" cy="-20" r="7" fill="white"/>
+    <ellipse cx="13" cy="-20" rx="4" ry="5" fill="#1a1a2e" class="eye-ball"/>
+    <circle cx="14" cy="-22" r="1.5" fill="white"/>
 
-    <!-- brows -->
-    <line x1="-13" y1="-24" x2="-4" y2="-21" stroke="#6D4C2E" stroke-width="2" stroke-linecap="round"/>
-    <line x1="13" y1="-24" x2="4" y2="-21" stroke="#6D4C2E" stroke-width="2" stroke-linecap="round"/>
+    <!-- Eyebrows (smug) -->
+    <line x1="-16" y1="-31" x2="-5" y2="-28" stroke="#6D4C2E" stroke-width="3" stroke-linecap="round"/>
+    <line x1="16" y1="-31" x2="5" y2="-28" stroke="#6D4C2E" stroke-width="3" stroke-linecap="round"/>
 
-    <!-- nose -->
-    <circle cx="-2.5" cy="-1" r="2" fill="#8B5E3C"/>
-    <circle cx="2.5" cy="-1" r="2" fill="#8B5E3C"/>
+    <!-- Nostrils -->
+    <circle cx="-3.5" cy="-2" r="3" fill="#8B5E3C"/>
+    <circle cx="3.5" cy="-2" r="3" fill="#8B5E3C"/>
 
-    <!-- smirk -->
-    <path d="M-5,5 Q0,10 5,5" stroke="#6D4C2E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Smirk mouth -->
+    <path d="M-8,6 Q0,14 8,6" stroke="#6D4C2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
 
-    <!-- body -->
-    <ellipse cx="0" cy="26" rx="19" ry="15" fill="#A0714F"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="35" rx="26" ry="20" fill="#A0714F"/>
 
-    <!-- arms -->
-    <path d="M-18,20 Q-36,12 -30,32" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-    <path d="M18,20 Q36,12 30,32" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <!-- Arms -->
+    <path d="M-24,28 Q-46,16 -38,42" stroke="#A0714F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M24,28 Q46,16 38,42" stroke="#A0714F" stroke-width="7" fill="none" stroke-linecap="round"/>
 
-    <!-- hands -->
-    <circle cx="-30" cy="33" r="4" fill="#C4956A"/>
-    <circle cx="30" cy="33" r="4" fill="#C4956A"/>
+    <!-- Hands -->
+    <circle cx="-38" cy="43" r="6" fill="#C4956A"/>
+    <circle cx="38" cy="43" r="6" fill="#C4956A"/>
 
-    <!-- banana -->
-    <text x="34" y="30" text-anchor="middle" font-size="18">🍌</text>
+    <!-- Banana in right hand (swinging) -->
+    <g class="banana-swing">
+      <text x="44" y="40" text-anchor="middle" font-size="24">🍌</text>
+    </g>
 
-    <!-- legs -->
-    <path d="M-8,39 Q-12,53 -18,52" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <path d="M8,39 Q12,53 18,52" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <ellipse cx="-19" cy="53" rx="5" ry="3" fill="#C4956A"/>
-    <ellipse cx="19" cy="53" rx="5" ry="3" fill="#C4956A"/>
-
-    <!-- tail -->
-    <path d="M13,36 Q34,41 36,27 Q39,12 32,18" stroke="#A0714F" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Legs -->
+    <path d="M-10,52 Q-15,68 -22,66" stroke="#A0714F" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M10,52 Q15,68 22,66" stroke="#A0714F" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-24" cy="67" rx="7" ry="4" fill="#C4956A"/>
+    <ellipse cx="24" cy="67" rx="7" ry="4" fill="#C4956A"/>
   </g>
 
-  <!-- thought bubble -->
-  <g class="thought" transform="translate(165, 50)">
-    <circle cx="8" cy="10" r="2.5" fill="white" opacity="0.5"/>
-    <circle cx="15" cy="4" r="3.5" fill="white" opacity="0.5"/>
-    <ellipse cx="28" cy="0" rx="16" ry="11" fill="white" opacity="0.85"/>
-    <text x="28" y="5" text-anchor="middle" font-size="16">🍌</text>
-  </g>
-
-  <!-- question mark -->
-  <text x="85" y="28" text-anchor="middle" font-size="22" font-weight="bold" fill="#FFD700" class="qmark" font-family="Arial">?</text>
+  <!-- Tail (swaying) -->
+  <path class="tail-sway" d="M20,45 Q50,50 55,30 Q60,10 48,18" stroke="#A0714F" stroke-width="4" fill="none" stroke-linecap="round"/>
 </svg>
