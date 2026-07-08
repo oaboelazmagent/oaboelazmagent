@@ -5,7 +5,18 @@
         0%, 90%, 100% { opacity:1; }
         94%, 96% { opacity:0; }
       }
+      @keyframes searching {
+        0%, 100% { transform: translate(0,0); }
+        33% { transform: translate(3px,0); }
+        66% { transform: translate(-2px,0); }
+      }
+      @keyframes tail-sway {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(12deg); }
+      }
       .left-eye, .right-eye { animation: blink 3.5s ease-in-out infinite; }
+      .eyeball { animation: searching 4s ease-in-out infinite; }
+      .tail-anim { animation: tail-sway 2.5s ease-in-out infinite; transform-origin: 105px 195px; }
     </style>
   </defs>
 
@@ -26,40 +37,46 @@
   <!-- face -->
   <ellipse cx="150" cy="145" rx="38" ry="32" fill="#C4956A"/>
 
-  <!-- eyes -->
+  <!-- eyes looking right (toward banana) -->
   <g class="left-eye">
     <circle cx="132" cy="135" r="9" fill="white"/>
-    <circle cx="134" cy="135" r="6" fill="#1a1a2e"/>
-    <circle cx="136" cy="133" r="2.5" fill="white"/>
+    <g class="eyeball">
+      <circle cx="137" cy="135" r="5.5" fill="#1a1a2e"/>
+      <circle cx="139" cy="133" r="2.5" fill="white"/>
+    </g>
   </g>
   <g class="right-eye">
     <circle cx="168" cy="135" r="9" fill="white"/>
-    <circle cx="170" cy="135" r="6" fill="#1a1a2e"/>
-    <circle cx="172" cy="133" r="2.5" fill="white"/>
+    <g class="eyeball">
+      <circle cx="173" cy="135" r="5.5" fill="#1a1a2e"/>
+      <circle cx="175" cy="133" r="2.5" fill="white"/>
+    </g>
   </g>
 
-  <!-- eyebrows -->
+  <!-- eyebrows (one raised — "huh?") -->
   <line x1="122" y1="120" x2="142" y2="126" stroke="#6D4C2E" stroke-width="4" stroke-linecap="round"/>
-  <line x1="178" y1="120" x2="158" y2="126" stroke="#6D4C2E" stroke-width="4" stroke-linecap="round"/>
+  <line x1="178" y1="117" x2="158" y2="123" stroke="#6D4C2E" stroke-width="4" stroke-linecap="round"/>
 
   <!-- nose -->
   <circle cx="146" cy="150" r="4" fill="#8B5E3C"/>
   <circle cx="154" cy="150" r="4" fill="#8B5E3C"/>
 
   <!-- mouth -->
-  <path d="M138 160 Q150 170 162 160" stroke="#6D4C2E" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M138 160 Q150 168 162 160" stroke="#6D4C2E" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-  <!-- left arm -->
+  <!-- left arm (free, resting) -->
   <path d="M110 190 Q85 175 80 200" stroke="#A0714F" stroke-width="12" fill="none" stroke-linecap="round"/>
   <circle cx="80" cy="202" r="8" fill="#C4956A"/>
 
-  <!-- right arm -->
+  <!-- right arm (holding banana) -->
   <path d="M190 190 Q215 175 220 200" stroke="#A0714F" stroke-width="12" fill="none" stroke-linecap="round"/>
   <circle cx="220" cy="202" r="8" fill="#C4956A"/>
 
   <!-- banana in right hand -->
-  <ellipse cx="230" cy="195" rx="16" ry="8" fill="#FEE12B" transform="rotate(-20 230 195)"/>
-  <ellipse cx="244" cy="188" rx="4" ry="7" fill="#8B4513" transform="rotate(-20 244 188)"/>
+  <g>
+    <ellipse cx="232" cy="195" rx="16" ry="8" fill="#FEE12B" transform="rotate(-20 232 195)"/>
+    <ellipse cx="246" cy="188" rx="4" ry="7" fill="#8B4513" transform="rotate(-20 246 188)"/>
+  </g>
 
   <!-- legs -->
   <ellipse cx="130" cy="240" rx="12" ry="7" fill="#C4956A"/>
@@ -67,17 +84,26 @@
   <path d="M135 232 Q130 245 128 240" stroke="#A0714F" stroke-width="10" fill="none" stroke-linecap="round"/>
   <path d="M165 232 Q170 245 172 240" stroke="#A0714F" stroke-width="10" fill="none" stroke-linecap="round"/>
 
-  <!-- tail -->
-  <path d="M155 170 Q185 125 175 95 Q165 70 155 80" stroke="#A0714F" stroke-width="5" fill="none" stroke-linecap="round">
-    <animateTransform attributeName="transform" type="rotate" values="0 155 170;5 155 170;0 155 170;-3 155 170;0 155 170" dur="3s" repeatCount="indefinite"/>
-  </path>
+  <!-- tail (left side, curling) -->
+  <g class="tail-anim">
+    <path d="M105 195 Q60 170 70 130 Q80 100 95 115" stroke="#A0714F" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
 
-  <!-- banana thought bubble animation -->
+  <!-- ? animation — "where's the banana?" -->
   <g>
-    <circle cx="150" cy="80" r="12" fill="white" opacity="0.8">
-      <animate attributeName="cy" values="80;70;80" dur="2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+    <text x="150" y="68" text-anchor="middle" font-size="24" font-weight="bold" fill="#FFD700" font-family="Arial">
+      ?
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="68;60;68" dur="1.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- banana thought bubble -->
+  <g>
+    <circle cx="150" cy="86" r="10" fill="white" opacity="0.7">
+      <animate attributeName="cy" values="86;78;86" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2.5s" repeatCount="indefinite"/>
     </circle>
-    <text x="150" y="84" text-anchor="middle" font-size="14">🍌</text>
+    <text x="150" y="89" text-anchor="middle" font-size="12">🍌</text>
   </g>
 </svg>
