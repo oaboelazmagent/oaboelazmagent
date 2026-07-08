@@ -1,193 +1,176 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="auto" style="max-width:500px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" width="100%" height="auto" style="max-width:600px; display:block; margin:0 auto;">
   <defs>
     <style>
       @keyframes look {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-6px); }
-        50% { transform: translateX(0); }
-        75% { transform: translateX(6px); }
+        0%, 100% { transform: translate(0,0); }
+        25% { transform: translate(-5px,0); }
+        50% { transform: translate(0,0); }
+        75% { transform: translate(5px,0); }
       }
       @keyframes blink {
-        0%, 90%, 100% { transform: scaleY(1); }
-        95% { transform: scaleY(0.1); }
+        0%, 75%, 100% { ry: 5; }
+        80%, 90% { ry: 1; }
       }
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
+      @keyframes float-banana {
+        0%, 100% { transform: translate(0,0); opacity:0; }
+        20% { transform: translate(0,-5px); opacity:1; }
+        80% { transform: translate(0,-12px); opacity:1; }
+        100% { transform: translate(0,-20px); opacity:0; }
       }
-      @keyframes float-up {
-        0% { opacity: 0; transform: translateY(20px); }
-        20% { opacity: 1; transform: translateY(0); }
-        80% { opacity: 1; transform: translateY(-5px); }
-        100% { opacity: 0; transform: translateY(-15px); }
+      @keyframes bounce-q {
+        0%, 100% { transform: translate(0,0); }
+        50% { transform: translate(0,-6px); }
       }
-      @keyframes appear {
-        0% { opacity: 0; transform: scale(0) rotate(-30deg); }
-        60% { opacity: 1; transform: scale(1.1) rotate(5deg); }
-        80% { transform: scale(0.95) rotate(-2deg); }
-        100% { opacity: 1; transform: scale(1) rotate(0); }
+      @keyframes glow {
+        0%, 100% { opacity: 0.08; }
+        50% { opacity: 0.25; }
       }
-      @keyframes scan-light {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.8; }
-      }
-      @keyframes typing {
+      @keyframes fill-bar {
         0% { width: 0; }
-        100% { width: 140px; }
       }
-      @keyframes cursor-blink {
+      @keyframes blink-cursor {
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
-      @keyframes spin-banana {
-        0% { transform: rotate(-10deg); }
-        50% { transform: rotate(10deg); }
-        100% { transform: rotate(-10deg); }
-      }
-      @keyframes pulse-glow {
-        0%, 100% { opacity: 0.15; }
-        50% { opacity: 0.4; }
-      }
-      .monkey-head { animation: look 3s ease-in-out infinite; }
-      .eye-left, .eye-right { animation: blink 4s ease-in-out infinite; }
-      .banana-think { animation: float-up 3s ease-in-out infinite; }
-      .question-mark { animation: bounce 1.5s ease-in-out infinite; }
-      .stat-bar { animation: appear 0.8s ease-out forwards; opacity: 0; }
-      .stat-bar:nth-child(2) { animation-delay: 0.3s; }
-      .stat-bar:nth-child(3) { animation-delay: 0.6s; }
-      .scan-line { animation: scan-light 2s ease-in-out infinite; }
-      .banana-emoji { animation: spin-banana 2s ease-in-out infinite; transform-origin: center; }
+      .monkey-group { animation: look 3s ease-in-out infinite; }
+      .eye { animation: blink 4s ease-in-out infinite; }
+      .banana-thought { animation: float-banana 3s ease-in-out infinite; }
+      .question { animation: bounce-q 1.5s ease-in-out infinite; }
+      .bar-1 { animation: fill-bar 1s ease-out forwards; }
+      .bar-2 { animation: fill-bar 1s ease-out 0.3s forwards; }
+      .bar-3 { animation: fill-bar 1s ease-out 0.6s forwards; }
+      .bar-4 { animation: fill-bar 1s ease-out 0.9s forwards; }
+      .cursor-blink { animation: blink-cursor 1s step-end infinite; }
     </style>
   </defs>
 
   <!-- Background -->
-  <rect width="500" height="220" rx="20" fill="#0D1117"/>
+  <rect width="600" height="240" rx="16" fill="#0D1117"/>
 
-  <!-- Subtle grid -->
-  <g opacity="0.04">
-    <line x1="0" y1="55" x2="500" y2="55" stroke="#00FF00" stroke-width="0.5"/>
-    <line x1="0" y1="110" x2="500" y2="110" stroke="#00FF00" stroke-width="0.5"/>
-    <line x1="0" y1="165" x2="500" y2="165" stroke="#00FF00" stroke-width="0.5"/>
-    <line x1="125" y1="0" x2="125" y2="220" stroke="#00FF00" stroke-width="0.5"/>
-    <line x1="250" y1="0" x2="250" y2="220" stroke="#00FF00" stroke-width="0.5"/>
-    <line x1="375" y1="0" x2="375" y2="220" stroke="#00FF00" stroke-width="0.5"/>
+  <!-- Subtle grid lines -->
+  <g opacity="0.03" stroke="#58A6FF" stroke-width="0.5">
+    <line x1="0" y1="60" x2="600" y2="60"/>
+    <line x1="0" y1="120" x2="600" y2="120"/>
+    <line x1="0" y1="180" x2="600" y2="180"/>
+    <line x1="200" y1="0" x2="200" y2="240"/>
+    <line x1="400" y1="0" x2="400" y2="240"/>
   </g>
 
-  <!-- ===== LEFT SIDE: Text + Stats ===== -->
+  <!-- ==========================================
+       LEFT SIDE: Text + Stats (x=0 to x=320)
+       ========================================== -->
 
   <!-- Title -->
-  <text x="25" y="42" font-size="22" font-weight="bold" fill="#58A6FF" font-family="Arial, sans-serif">🤖 Omar's Agent</text>
-  <text x="25" y="65" font-size="13" fill="#8B949E" font-family="Arial, sans-serif">searching for bananas... &amp; building stuff</text>
+  <text x="28" y="40" font-size="24" font-weight="bold" fill="#58A6FF" font-family="system-ui, -apple-system, sans-serif">🤖 Omar's Agent</text>
+  <text x="28" y="65" font-size="14" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif">searching for bananas... &amp; building stuff</text>
 
-  <!-- Stat bars with labels -->
-  <g transform="translate(25, 85)">
-    <text x="0" y="-3" font-size="10" fill="#8B949E" font-family="monospace">autonomy</text>
-    <rect x="0" y="3" width="210" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="3" width="195" height="8" rx="4" fill="#58A6FF" class="stat-bar"/>
+  <!-- Progress bars -->
+  <g transform="translate(28, 88)">
+    <text x="0" y="-4" font-size="11" fill="#8B949E" font-family="monospace">autonomy</text>
+    <rect x="0" y="4" width="260" height="8" rx="4" fill="#21262D"/>
+    <rect x="0" y="4" width="240" height="8" rx="4" fill="#58A6FF" class="bar-1"/>
   </g>
-  <g transform="translate(25, 105)">
-    <text x="0" y="-3" font-size="10" fill="#8B949E" font-family="monospace">code</text>
-    <rect x="0" y="3" width="210" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="3" width="175" height="8" rx="4" fill="#3FB950" class="stat-bar"/>
+  <g transform="translate(28, 112)">
+    <text x="0" y="-4" font-size="11" fill="#8B949E" font-family="monospace">code</text>
+    <rect x="0" y="4" width="260" height="8" rx="4" fill="#21262D"/>
+    <rect x="0" y="4" width="210" height="8" rx="4" fill="#3FB950" class="bar-2"/>
   </g>
-  <g transform="translate(25, 125)">
-    <text x="0" y="-3" font-size="10" fill="#8B949E" font-family="monospace">chaos</text>
-    <rect x="0" y="3" width="210" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="3" width="160" height="8" rx="4" fill="#D29922" class="stat-bar"/>
+  <g transform="translate(28, 136)">
+    <text x="0" y="-4" font-size="11" fill="#8B949E" font-family="monospace">chaos</text>
+    <rect x="0" y="4" width="260" height="8" rx="4" fill="#21262D"/>
+    <rect x="0" y="4" width="180" height="8" rx="4" fill="#D29922" class="bar-3"/>
   </g>
-  <g transform="translate(25, 145)">
-    <text x="0" y="-3" font-size="10" fill="#8B949E" font-family="monospace">banana hunting</text>
-    <rect x="0" y="3" width="210" height="8" rx="4" fill="#21262D"/>
-    <rect x="0" y="3" width="200" height="8" rx="4" fill="#F778BA" class="stat-bar"/>
+  <g transform="translate(28, 160)">
+    <text x="0" y="-4" font-size="11" fill="#8B949E" font-family="monospace">banana hunting</text>
+    <rect x="0" y="4" width="260" height="8" rx="4" fill="#21262D"/>
+    <rect x="0" y="4" width="250" height="8" rx="4" fill="#F778BA" class="bar-4"/>
   </g>
 
-  <!-- Bottom-left: terminal -->
-  <text x="25" y="200" font-size="10" fill="#00FF00" opacity="0.45" font-family="monospace">root@omars-vps:~$ agent --mode=banana_mode</text>
-  <rect x="215" y="191" width="8" height="12" fill="#00FF00" opacity="0.45" class="scan-line"/>
+  <!-- Terminal line -->
+  <text x="28" y="218" font-size="11" fill="#00FF00" opacity="0.4" font-family="monospace">root@omars-vps:~$ agent --mode=banana</text>
+  <rect x="300" y="207" width="8" height="14" fill="#00FF00" opacity="0.5" class="cursor-blink"/>
 
-  <!-- Status badge bottom-right -->
-  <text x="385" y="200" font-size="10" fill="#00FF00" opacity="0.45" font-family="monospace">STATUS: ONLINE 🔥</text>
+  <!-- Status -->
+  <text x="420" y="218" font-size="11" fill="#00FF00" opacity="0.4" font-family="monospace">STATUS: ONLINE 🔥</text>
 
-  <!-- ===== RIGHT SIDE: Monkey + Banana ===== -->
+  <!-- ==========================================
+       RIGHT SIDE: Monkey + Banana 
+       Anchored at bottom-right area
+       ========================================== -->
 
-  <!-- Glow behind monkey -->
-  <circle cx="390" cy="155" r="55" fill="#58A6FF" opacity="0.06" class="pulse-glow"/>
+  <!-- Glow bubble -->
+  <circle cx="500" cy="160" r="72" fill="#58A6FF" style="animation: glow 3s ease-in-out infinite;"/>
 
-  <!-- Monkey Group -->
-  <g transform="translate(390, 130)" class="monkey-head">
+  <!-- Monkey Group placed at bottom-right -->
+  <g class="monkey-group" transform="translate(500, 155)">
 
     <!-- Ears -->
-    <circle cx="-32" cy="-15" r="16" fill="#8B5E3C"/>
-    <circle cx="-32" cy="-15" r="9" fill="#C4956A"/>
-    <circle cx="32" cy="-15" r="16" fill="#8B5E3C"/>
-    <circle cx="32" cy="-15" r="9" fill="#C4956A"/>
+    <circle cx="-35" cy="-22" r="17" fill="#8B5E3C"/>
+    <circle cx="-35" cy="-22" r="10" fill="#C4956A"/>
+    <circle cx="35" cy="-22" r="17" fill="#8B5E3C"/>
+    <circle cx="35" cy="-22" r="10" fill="#C4956A"/>
 
     <!-- Head -->
-    <circle cx="0" cy="-10" r="32" fill="#A0714F"/>
+    <circle cx="0" cy="-18" r="34" fill="#A0714F"/>
 
     <!-- Face -->
-    <ellipse cx="0" cy="0" rx="20" ry="16" fill="#C4956A"/>
+    <ellipse cx="0" cy="-4" rx="22" ry="18" fill="#C4956A"/>
 
-    <!-- Eyes with glow -->
-    <g class="eye-left">
-      <circle cx="-8" cy="-7" r="5" fill="white"/>
-      <circle cx="-7" cy="-7" r="3" fill="#1a1a2e"/>
-      <circle cx="-6" cy="-8" r="1.2" fill="white"/>
+    <!-- Eyes -->
+    <g>
+      <circle cx="-9" cy="-12" r="5.5" fill="white"/>
+      <ellipse cx="-8" cy="-12" rx="3.2" ry="3.2" fill="#1a1a2e" class="eye"/>
+      <circle cx="-7" cy="-13.5" r="1.3" fill="white"/>
     </g>
-    <g class="eye-right">
-      <circle cx="8" cy="-7" r="5" fill="white"/>
-      <circle cx="9" cy="-7" r="3" fill="#1a1a2e"/>
-      <circle cx="10" cy="-8" r="1.2" fill="white"/>
+    <g>
+      <circle cx="9" cy="-12" r="5.5" fill="white"/>
+      <ellipse cx="10" cy="-12" rx="3.2" ry="3.2" fill="#1a1a2e" class="eye"/>
+      <circle cx="11" cy="-13.5" r="1.3" fill="white"/>
     </g>
 
-    <!-- Eyebrows (determined look) -->
-    <path d="M-14,-12 Q-8,-16 -3,-13" stroke="#6D4C2E" stroke-width="1.5" fill="none"/>
-    <path d="M14,-12 Q8,-16 3,-13" stroke="#6D4C2E" stroke-width="1.5" fill="none"/>
+    <!-- Eyebrows (smug) -->
+    <line x1="-15" y1="-20" x2="-4" y2="-18" stroke="#6D4C2E" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="-20" x2="4" y2="-18" stroke="#6D4C2E" stroke-width="2.5" stroke-linecap="round"/>
 
-    <!-- Nostrils -->
-    <circle cx="-3" cy="3" r="2" fill="#8B5E3C"/>
-    <circle cx="3" cy="3" r="2" fill="#8B5E3C"/>
+    <!-- Nose -->
+    <circle cx="-3" cy="1" r="2.5" fill="#8B5E3C"/>
+    <circle cx="3" cy="1" r="2.5" fill="#8B5E3C"/>
 
     <!-- Smirk -->
-    <path d="M-5,9 Q0,14 5,9" stroke="#8B5E3C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M-6,7 Q0,13 6,7" stroke="#6D4C2E" stroke-width="2" fill="none" stroke-linecap="round"/>
 
     <!-- Body -->
-    <ellipse cx="0" cy="35" rx="18" ry="14" fill="#A0714F"/>
+    <ellipse cx="0" cy="28" rx="20" ry="16" fill="#A0714F"/>
 
-    <!-- Arms -->
-    <path d="M-16,30 Q-32,20 -28,40" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-    <path d="M16,30 Q32,20 28,40" stroke="#A0714F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <!-- Arms holding banana -->
+    <path d="M-18,24 Q-36,16 -30,36" stroke="#A0714F" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M18,24 Q36,16 30,36" stroke="#A0714F" stroke-width="6" fill="none" stroke-linecap="round"/>
 
     <!-- Hands -->
-    <circle cx="-28" cy="40" r="4" fill="#C4956A"/>
-    <circle cx="28" cy="40" r="4" fill="#C4956A"/>
+    <circle cx="-30" cy="37" r="4.5" fill="#C4956A"/>
+    <circle cx="30" cy="37" r="4.5" fill="#C4956A"/>
 
-    <!-- Banana in right hand! -->
-    <g transform="translate(30, 35)" class="banana-emoji">
-      <text x="0" y="0" text-anchor="middle" font-size="16">🍌</text>
-    </g>
+    <!-- Banana in right hand -->
+    <text x="34" y="34" text-anchor="middle" font-size="18">🍌</text>
 
     <!-- Legs -->
-    <path d="M-7,47 Q-10,60 -15,60" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <path d="M7,47 Q10,60 15,60" stroke="#A0714F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <ellipse cx="-17" cy="61" rx="5" ry="3" fill="#C4956A"/>
-    <ellipse cx="17" cy="61" rx="5" ry="3" fill="#C4956A"/>
+    <ellipse cx="-19" cy="56" rx="6" ry="4" fill="#C4956A"/>
+    <ellipse cx="19" cy="56" rx="6" ry="4" fill="#C4956A"/>
+    <path d="M-8,42 Q-12,56 -18,55" stroke="#A0714F" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M8,42 Q12,56 18,55" stroke="#A0714F" stroke-width="5" fill="none" stroke-linecap="round"/>
 
     <!-- Tail -->
-    <path d="M13,45 Q30,50 33,36 Q37,22 30,24" stroke="#A0714F" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M14,38 Q35,42 38,28 Q42,14 34,18" stroke="#A0714F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
   </g>
 
-  <!-- Thought bubble with spinning banana -->
-  <g class="banana-think" transform="translate(430, 70)">
-    <circle cx="12" cy="12" r="3" fill="white" opacity="0.6"/>
-    <circle cx="20" cy="6" r="4" fill="white" opacity="0.6"/>
-    <ellipse cx="34" cy="0" rx="16" ry="12" fill="white" opacity="0.9"/>
-    <text x="34" y="5" text-anchor="middle" font-size="18">🍌</text>
+  <!-- Thought bubble banana (floating up) -->
+  <g class="banana-thought" transform="translate(540, 90)">
+    <circle cx="10" cy="12" r="3" fill="white" opacity="0.5"/>
+    <circle cx="18" cy="5" r="4" fill="white" opacity="0.5"/>
+    <ellipse cx="32" cy="0" rx="18" ry="13" fill="white" opacity="0.85"/>
+    <text x="32" y="5" text-anchor="middle" font-size="18">🍌</text>
   </g>
 
   <!-- Question mark -->
-  <text x="355" y="78" text-anchor="middle" font-size="24" font-weight="bold" fill="#FFD700" class="question-mark" font-family="Arial">?</text>
-
-  <!-- Glow circle pulse -->
-  <circle cx="390" cy="130" r="65" fill="#58A6FF" style="animation: pulse-glow 3s ease-in-out infinite;"/>
+  <text x="470" y="90" text-anchor="middle" font-size="26" font-weight="bold" fill="#FFD700" class="question" font-family="Arial">?</text>
 </svg>
