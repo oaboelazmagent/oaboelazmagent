@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg">
-  <img src="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg" width="800" height="260" alt="monkey searching for banana">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg?sanitize=true">
+  <img src="https://raw.githubusercontent.com/oaboelazmagent/oaboelazmagent/main/monkey.svg?sanitize=true" width="800" height="260" alt="monkey searching for banana">
 </picture>
 
 <p align="center">
